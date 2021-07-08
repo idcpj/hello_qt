@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QMessageBox>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -21,9 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
     curFile =tr("未命名,txt");
     setWindowTitle(curFile);
 
-
-
-
 }
 
 MainWindow::~MainWindow()
@@ -31,14 +30,36 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+/**
+ * @brief MainWindow::newFile
+ */
 void MainWindow::newFile()
 {
 
+    // 新建文件前判断当前文件是否保存
+    // 若保存,则直接新建文件
+    if (maybeSave()){
+        isUntitled=true;
+        curFile=tr("未命名.txt");
+        setWindowTitle(curFile);
+        ui->textEdit->clear();
+        ui->textEdit->setVisible(true);
+    }
 }
 
 bool MainWindow::maybeSave()
 {
+    if (ui->textEdit->document()->isModified()){
+        QMessageBox box;
+        box.setWindowTitle(tr("警告"));
+        box.setIcon(QMessageBox::Warning);
+        box.setText(curFile+tr("尚未保存,是否保存?"));
+        QPushButton *yesBtn=box.addButton(tr("是(&Y)"),
+                                          QMessageBox::YesRole);
+       box.addButton(tr("否(&N)"),)
 
+
+    }
 }
 
 bool MainWindow::save()
