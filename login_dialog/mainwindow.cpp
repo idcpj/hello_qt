@@ -11,14 +11,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-}
-
-
-QDialog::DialogCode MainWindow::run(){
     LoginDlg *login = new LoginDlg(this);
-    return QDialog::DialogCode(login->exec());
+    if(QDialog::DialogCode(login->exec())==QDialog::Accepted){
+        show();
+        qApp->exec();
+    }
 
 }
+
 
 MainWindow::~MainWindow()
 {

@@ -36,31 +36,31 @@
     <property name="title">
      <string>文件(&amp;F)</string>
     </property>
-    <addaction name="new_file"/>
-    <addaction name="actionopen"/>
-    <addaction name="actionclose"/>
+    <addaction name="action_file"/>
+    <addaction name="action_open"/>
+    <addaction name="action_close"/>
     <addaction name="separator"/>
-    <addaction name="actionsave"/>
-    <addaction name="actionsave_2"/>
+    <addaction name="action_save"/>
+    <addaction name="action_saveas"/>
     <addaction name="separator"/>
-    <addaction name="actionquit"/>
+    <addaction name="action_quit"/>
    </widget>
    <widget class="QMenu" name="menu_E">
     <property name="title">
      <string>编辑(&amp;E)</string>
     </property>
-    <addaction name="actionc"/>
-    <addaction name="actionc_2"/>
-    <addaction name="actiona"/>
-    <addaction name="actiond"/>
+    <addaction name="action_undo"/>
+    <addaction name="action_cut"/>
+    <addaction name="action_copy"/>
+    <addaction name="action_paste"/>
     <addaction name="separator"/>
-    <addaction name="actiond_2"/>
+    <addaction name="action_find"/>
    </widget>
    <widget class="QMenu" name="menu_H">
     <property name="title">
      <string>帮助(&amp;H)</string>
     </property>
-    <addaction name="action"/>
+    <addaction name="action_help"/>
    </widget>
    <addaction name="menu_F"/>
    <addaction name="menu_E"/>
@@ -76,22 +76,19 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="new_file"/>
-   <addaction name="actionsave"/>
-   <addaction name="actionsave_2"/>
+   <addaction name="action_file"/>
+   <addaction name="action_open"/>
+   <addaction name="action_save"/>
+   <addaction name="action_saveas"/>
    <addaction name="separator"/>
-   <addaction name="actionc"/>
-   <addaction name="actionc_2"/>
-   <addaction name="actiona"/>
-   <addaction name="actiond"/>
+   <addaction name="action_undo"/>
+   <addaction name="action_cut"/>
+   <addaction name="action_copy"/>
+   <addaction name="action_paste"/>
    <addaction name="separator"/>
-   <addaction name="actiond_2"/>
+   <addaction name="action_find"/>
   </widget>
-  <action name="new_file">
-   <property name="icon">
-    <iconset resource="myResources.qrc">
-     <normaloff>:/icons/images/2.png</normaloff>:/icons/images/2.png</iconset>
-   </property>
+  <action name="action_file">
    <property name="text">
     <string>新建(&amp;N)</string>
    </property>
@@ -99,7 +96,7 @@
     <string>Ctrl+N</string>
    </property>
   </action>
-  <action name="actionopen">
+  <action name="action_open">
    <property name="text">
     <string>打开(&amp;O)</string>
    </property>
@@ -107,7 +104,7 @@
     <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="actionclose">
+  <action name="action_close">
    <property name="text">
     <string>关闭(&amp;C)</string>
    </property>
@@ -115,7 +112,7 @@
     <string>Ctrl+W</string>
    </property>
   </action>
-  <action name="actionsave">
+  <action name="action_save">
    <property name="text">
     <string>保存(&amp;S)</string>
    </property>
@@ -123,7 +120,7 @@
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="actionsave_2">
+  <action name="action_saveas">
    <property name="text">
     <string>另存&amp;A)</string>
    </property>
@@ -131,7 +128,7 @@
     <string>Ctrl+A</string>
    </property>
   </action>
-  <action name="actionquit">
+  <action name="action_quit">
    <property name="text">
     <string>退出(&amp;X)</string>
    </property>
@@ -139,39 +136,34 @@
     <string>Ctrl+W</string>
    </property>
   </action>
-  <action name="actionc">
+  <action name="action_undo">
    <property name="text">
     <string>撤销(&amp;Z)</string>
    </property>
   </action>
-  <action name="actionc_2">
+  <action name="action_cut">
    <property name="text">
     <string>剪切(&amp;X)</string>
    </property>
   </action>
-  <action name="actiona">
+  <action name="action_copy">
    <property name="text">
     <string>复制(&amp;C)</string>
    </property>
   </action>
-  <action name="actiond">
+  <action name="action_paste">
    <property name="text">
     <string>粘贴(&amp;V)</string>
    </property>
   </action>
-  <action name="actiond_2">
+  <action name="action_find">
    <property name="text">
     <string>查找(&amp;F)</string>
    </property>
   </action>
-  <action name="action">
+  <action name="action_help">
    <property name="text">
     <string>帮助</string>
-   </property>
-  </action>
-  <action name="actionb">
-   <property name="text">
-    <string>b</string>
    </property>
   </action>
   <action name="actionc_3">
@@ -180,8 +172,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="myResources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
