@@ -88,6 +88,17 @@
    <addaction name="separator"/>
    <addaction name="action_find"/>
   </widget>
+  <widget class="QToolBar" name="statusBar">
+   <property name="windowTitle">
+    <string>toolBar_2</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>BottomToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="action_file">
    <property name="text">
     <string>新建(&amp;N)</string>

@@ -8,6 +8,10 @@
 #include <QTextStream>
 #include <QFileInfo>
 #include <QtDebug>
+#include <QLineEdit>
+#include <QDialog>
+#include <QPushButton>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -28,6 +32,28 @@ MainWindow::MainWindow(QWidget *parent)
     isSave=true; // 初始化为未保存状态
     curFile =tr("未命名.txt");
     setWindowTitle(curFile);
+
+    findDlg = new QDialog(this);
+    findDlg->setWindowTitle(tr("查找"));
+    findLineEdit=new QLineEdit(findDlg);
+
+    QPushButton *nextBtn = new QPushButton(tr("查找下一个"),findDlg);
+    //QPushButton *preBtn = new QPushButton(tr("查找上一个"),findDlg);
+    QVBoxLayout *layout = new QVBoxLayout(findDlg);
+    layout->setDirection(QVBoxLayout::LeftToRight);
+
+    layout->addWidget(findLineEdit);
+    layout->addWidget(nextBtn);
+
+    connect(nextBtn,&QPushButton::clicked,[this]{
+        showFindText();
+    });
+
+
+
+
+
+
 
 }
 
@@ -240,6 +266,7 @@ void MainWindow::on_action_paste_triggered()
     ui->textEdit->paste();
 }
 
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     if(curFileIsSave()){
@@ -247,4 +274,19 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }else{
         event->ignore();
     }
+}
+
+void MainWindow::showFindText()
+{
+    QString content= findLineEdit->text();
+    if(!ui->textEdit->find(content,QTextDocument::FindBackward)){
+        QMessageBox::warning(this,
+                             tr("查找"),
+                             tr("找不到%1").arg(content));
+    }
+}
+
+void MainWindow::on_action_find_triggered()
+{
+    findDlg->show();
 }

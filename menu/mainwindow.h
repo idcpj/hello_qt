@@ -8,6 +8,10 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+
+class QLineEdit;
+class QDialog;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -22,6 +26,7 @@ public:
     bool saveAs();
     bool saveFile(const QString &fileName);
     bool loadFile(const QString &fileName);
+
 
 
 private slots:
@@ -45,8 +50,15 @@ private slots:
 
     void on_action_paste_triggered();
 
+    void showFindText();
+
+
+    void on_action_find_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QLineEdit *findLineEdit;
+    QDialog *findDlg;
 
     bool isSave;// 文件是否被保存过
     QString curFile;// 保存当前文件的路径
