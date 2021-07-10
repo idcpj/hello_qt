@@ -88,23 +88,19 @@
    <addaction name="separator"/>
    <addaction name="action_find"/>
   </widget>
-  <widget class="QToolBar" name="statusBar">
-   <property name="windowTitle">
-    <string>toolBar_2</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>BottomToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="action_file">
    <property name="text">
     <string>新建(&amp;N)</string>
    </property>
+   <property name="statusTip">
+    <string>新建文件</string>
+   </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>false</bool>
    </property>
   </action>
   <action name="action_open">
@@ -175,11 +171,6 @@
   <action name="action_help">
    <property name="text">
     <string>帮助</string>
-   </property>
-  </action>
-  <action name="actionc_3">
-   <property name="text">
-    <string>c</string>
    </property>
   </action>
  </widget>

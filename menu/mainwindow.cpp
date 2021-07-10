@@ -11,6 +11,7 @@
 #include <QLineEdit>
 #include <QDialog>
 #include <QPushButton>
+#include <QLabel>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -50,8 +51,15 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
 
+    QLabel *label = new QLabel(this);
+    label->setText(tr("hello word"));
+    label->setMinimumSize(150,20);
+    label->setFrameShape(QFrame::WinPanel);
+    label->setFrameShadow(QFrame::Sunken);
+    ui->statusBar->addWidget(label);
 
 
+    //ui->statusBar->showMessage(tr("欢迎访问Qt爱好者社区！"),2000);
 
 
 
