@@ -61,6 +61,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     //ui->statusBar->showMessage(tr("欢迎访问Qt爱好者社区！"),2000);
 
+    QLabel *permanent = new QLabel();
+    permanent->setFrameStyle(QFrame::Box|QFrame::Sunken);
+    permanent->setText(
+                tr("<a href=\"http://www.yafeilinux.com\">yafeilinux.com</a>"));
+    permanent->setTextFormat(Qt::RichText);
+    permanent->setOpenExternalLinks(true);
+    ui->statusBar->addPermanentWidget(permanent);
 
 
 }
