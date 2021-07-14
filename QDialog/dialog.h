@@ -25,6 +25,10 @@ private:
     QPoint firstPoint;
     QPoint endPoint;
 
+    QPixmap tmpPix;
+    bool isDrawing;
+
+
     qreal scale;
     QPushButton *button;
 
@@ -33,6 +37,7 @@ private slots:
     void zoomIn();
 
 protected:
+
     void  paintEvent(QPaintEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *) override;

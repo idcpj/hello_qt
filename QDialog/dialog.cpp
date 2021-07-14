@@ -21,6 +21,9 @@ Dialog::Dialog(QWidget *parent)
         zoomIn();
     });
 
+    isDrawing=false;
+
+
 
 
 }
@@ -41,29 +44,34 @@ void Dialog::paintEvent(QPaintEvent *event)
 {
 
 
-    QPainter pp(&pix);
-    int x1 = firstPoint.x();
-    int y1 = firstPoint.y();
-    int w = endPoint.x()-x1;
-    int h =endPoint.y()-y1;
-    qDebug()<<"x1,y1,w,h"<<x1<<y1<<w<<h;
-    pp.drawRect(x1,y1,w,h);
-
+    int x = firstPoint.x();
+    int y = firstPoint.y();
+    int w = endPoint.x()-x;
+    int h =endPoint.y()-y;
+    qDebug()<<"x1,y1,w,h"<<x<<y<<w<<h;
 
     QPainter painter(this);
-    painter.drawPixmap(0,0,pix);
-
-
-
-
+    if(isDrawing){
+        tmpPix=pix;
+        QPainter pp(&tmpPix);
+        pp.drawRect(x,y,w,h);
+        painter.drawPixmap(0,0,tmpPix);
+    }else{
+        QPainter pp(&pix);
+        pp.drawRect(x,y,w,h);
+        painter.drawPixmap(0,0,pix);
+    }
 
 }
 
 
 void Dialog::mousePressEvent(QMouseEvent *event)
 {
-   if(event->button()==Qt::LeftButton) //鼠标左键按下
-   firstPoint = event->pos();
+   if(event->button()==Qt::LeftButton){
+       firstPoint = event->pos();
+       isDrawing = true;   //正在绘图
+
+   }
 }
 
 void Dialog::mouseMoveEvent(QMouseEvent *event)
@@ -81,6 +89,7 @@ void Dialog::mouseReleaseEvent(QMouseEvent *event)
     if(event->button() == Qt::LeftButton) //鼠标左键释放
      {
               endPoint = event->pos();
+              isDrawing = false;    //结束绘图
               update();
      }
 }
