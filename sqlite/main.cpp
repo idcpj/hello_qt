@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
 
     }
 
+    tr("asd")
+
 
     return a.exec();
 }
