@@ -87,11 +87,25 @@ void MainWindow::on_pushButton_4_clicked()
 
     QModelIndex index=ui->tableView->currentIndex();
     qDebug()<<index.row();
-    if(model->removeRow(index.row())){
+    model->removeRow(index.row());
+
+    int res = QMessageBox::warning(this,tr("delete row"),
+                         tr("do you delete the row"),
+                                   QMessageBox::Yes|
+                                   QMessageBox::Cancel);
+
+    if(res ==QMessageBox::Yes){
         model->submitAll();
     }else{
-        QMessageBox::warning(this,
-                             tr("delete failed"),
-                             tr("delete row is error"));
+        model->revertAll();
     }
+
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    int row = model->rowCount();
+    model->insertRow(row);
+    model->setData(model->index(row,0),10);
+    // model->submitAll(); //可直接提交
 }
