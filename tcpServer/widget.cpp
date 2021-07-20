@@ -42,7 +42,7 @@ void Widget::sendMessage()
     qDebug()<<"kjbkj"<<clientConnection;
 
 
-    //connect(clientConnection, SIGNAL(disconnected()), clientConnection, SLOT(deleteLater()));
+//    connect(clientConnection, SIGNAL(disconnected()), clientConnection, SLOT(deleteLater()));
 
 
 //    clientConnection->write(block);
