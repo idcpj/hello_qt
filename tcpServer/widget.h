@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTcpServer>
+#include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }

@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -17,5 +18,15 @@ public:
 
 private:
     Ui::Widget *ui;
+    QTcpSocket *tcpSocket;
+    QString message;
+    quint16 blocksize;
+
+private slots:
+    void newConnect(); // 连接服务器
+    void readMessage(); //接受信息
+    void displayError(QAbstractSocket::SocketError);
+
+    void on_pushButton_clicked();
 };
 #endif // WIDGET_H

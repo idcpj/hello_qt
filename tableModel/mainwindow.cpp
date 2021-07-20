@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model->select();
     ui->tableView->setModel(model);
-    ui->tableView->setStyle(QStyleFactory::create("Fusion"));
 }
 
 MainWindow::~MainWindow()

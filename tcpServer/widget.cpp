@@ -32,21 +32,23 @@ void Widget::sendMessage()
     //设置数据流的版本，客户端和服务器端使用的版本要相同
     out.setVersion(QDataStream::Qt_4_6);
 
-    out<<(quint16) 0;
+    out<<quint16(0);
     out<<tr("hello Tcp!!!");
     out.device()->seek(0);
-    out<< (quint16)(block.size()-sizeof(quint16));
+    out<< quint16(block.size()-quint16(sizeof(quint16)));
 
     QTcpSocket *clientConnection = tcpServer->nextPendingConnection();
 
     qDebug()<<"kjbkj"<<clientConnection;
 
 
-//    connect(clientConnection, SIGNAL(disconnected()), clientConnection, SLOT(deleteLater()));
 
 
-//    clientConnection->write(block);
-//    clientConnection->disconnectFromHost();
+    connect(clientConnection, &QTcpSocket::disconnected, clientConnection, &QTcpSocket::deleteLater);
+
+
+    clientConnection->write(block);
+    clientConnection->disconnectFromHost();
 
 
     ui->statusLabel->setText("send message successfull");

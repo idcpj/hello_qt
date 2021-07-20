@@ -20,16 +20,16 @@ public:
 private:
     Ui::Widget *ui;
     QTcpSocket *tcpclient;
-    QFile *file;
+    QFile *localFile; //要发送的文件
 
-    qint64 totalBytes;
-    qint64 bytesWritten;
-    qint64 bytesToWrite;
-    qint64 loadSize;
+    qint64 totalBytes; //数据总大小
+    qint64 bytesWritten; // 已发送的数据
+    qint64 bytesToWrite;   //剩余数据大小
+    qint64 loadSize; //每次发送数据的大小, 4KB
 
-    QString fileName;
+    QString fileName;  //保存文件路径
 
-    QByteArray outBlock;
+    QByteArray outBlock;  //数据缓冲区，即存放每次要发送的数据
 
 private slots:
     void send(); //连接服务器
@@ -38,6 +38,8 @@ private slots:
     void displayError(QAbstractSocket::SocketError);
     void openFile();
 
+    void on_openButton_clicked();
+    void on_sendButton_clicked();
 };
 
 

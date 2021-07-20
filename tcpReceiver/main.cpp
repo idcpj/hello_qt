@@ -1,15 +1,11 @@
-#include "mainwindow.h"
-#include "connection.h"
+#include "widget.h"
+
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    if(!createConntion()){
-        return 1;
-    }
-
-    MainWindow w;
+    Widget w;
     w.show();
     return a.exec();
 }
