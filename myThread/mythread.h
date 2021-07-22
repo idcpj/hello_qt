@@ -2,7 +2,9 @@
 #define MYTHREAD_H
 
 #include <QThread>
+#include <QThreadPool>
 #include <QDebug>
+#include <QString>
 
 class MyThread : public QThread
 {
@@ -19,8 +21,9 @@ private:
     volatile bool stopped=false;
 
 Q_SIGNALS:
+    void stringChanged(const QString &);
 
-public slots:
+;
 };
 
 #endif // MYTHREAD_H

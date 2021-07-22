@@ -2,6 +2,7 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QMutex>
 
 #include "mythread.h"
 
@@ -27,5 +28,8 @@ private:
     Ui::Dialog *ui;
 
     MyThread thread;
+
+public slots:
+    void changeString(const QString &);
 };
 #endif // DIALOG_H

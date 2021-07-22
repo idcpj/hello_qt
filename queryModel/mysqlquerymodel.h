@@ -2,6 +2,7 @@
 #define MYSQLQUERYMODEL_H
 
 #include <QSqlQueryModel>
+#include <QWaitCondition>
 
 
 

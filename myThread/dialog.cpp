@@ -6,6 +6,8 @@ Dialog::Dialog(QWidget *parent)
     , ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+
+   connect(&thread,&MyThread::stringChanged,this,&Dialog::changeString);
 }
 
 Dialog::~Dialog()
@@ -29,5 +31,9 @@ void Dialog::on_stopButton_clicked()
         ui->startButton->setEnabled(true);
         ui->stopButton->setEnabled(false);
     }
+}
 
+void Dialog::changeString(const QString &str)
+{
+    ui->label->setText(str);
 }

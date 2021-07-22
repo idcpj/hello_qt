@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWebEngineView>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +19,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    QWebEngineView *view;
+
+private slots:
+    void urlChanged(const QUrl &url);
 };
 #endif // MAINWINDOW_H

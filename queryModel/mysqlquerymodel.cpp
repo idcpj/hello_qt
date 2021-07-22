@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 
+
 MySqlQueryModel::MySqlQueryModel(QObject *parent):QSqlQueryModel(parent)
 {
 
@@ -16,6 +17,8 @@ Qt::ItemFlags MySqlQueryModel::flags(const QModelIndex &index) const
     if(index.column()==0){
         flags |= Qt::ItemIsEditable;
     }
+
+
     return flags;
 }
 

@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     view->load(QUrl("http://www.baidu.com"));
 
 
-
 }
 
 MainWindow::~MainWindow()

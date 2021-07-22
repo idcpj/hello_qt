@@ -12,9 +12,11 @@ void MyThread::stop()
 
 void MyThread::run()
 {
-    qreal i=0;
+    long i=0;
     while (!stopped) {
-        qDebug()<<tr("in MyThread:%1").arg(i++);
+        stringChanged(tr("in MyThread: %1").arg(i));
+        msleep(1);
+        i++;
     }
 
     stopped=false;

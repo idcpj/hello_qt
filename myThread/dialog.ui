@@ -19,8 +19,8 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>210</y>
+     <x>380</x>
+     <y>280</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -32,14 +32,27 @@
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>210</y>
+     <x>270</x>
+     <y>280</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>启动线程</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>190</y>
+     <width>171</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TextLabel</string>
    </property>
   </widget>
  </widget>
