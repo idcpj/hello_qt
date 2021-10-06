@@ -2,5 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     chat \
-    chat1 \
+    chat1_test \
     chat_test
