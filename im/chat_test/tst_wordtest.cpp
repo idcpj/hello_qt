@@ -2,7 +2,9 @@
 
 // add necessary includes here
 
+#include <QDebug>
 #include "../chat/word.h"
+
 
 class WordTest : public QObject
 {
@@ -14,6 +16,7 @@ public:
 
 private slots:
     void test_case1();
+    void initTestCase();
 
 };
 
@@ -32,6 +35,11 @@ void WordTest::test_case1()
        Word word;
        int res = word.add(1,2);
        QTRY_COMPARE(res,3);
+}
+
+void WordTest::initTestCase()
+{
+    qDebug()<<"asd";
 }
 
 QTEST_APPLESS_MAIN(WordTest)
