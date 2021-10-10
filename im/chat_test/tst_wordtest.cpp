@@ -42,6 +42,6 @@ void WordTest::initTestCase()
     qDebug()<<"asd";
 }
 
-QTEST_APPLESS_MAIN(WordTest)
+//QTEST_APPLESS_MAIN(WordTest)
 
 #include "tst_wordtest.moc"
